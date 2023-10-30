@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <section>
+        <h1>Game On</h1>
+        <section>
+            <select name="type">
+                <option value="easy">Simple</option>
+                <option value="medium">Fair</option>
+                <option value="impossible">God Mode</option>
+                <option value="friend" selected>Duo</option>
+            </select>
+            <div class="players">
+                <span class="player1"></span>
+                <p>X    <span>—</span></p>
+            </div>
+            <div class="players">
+                <span class="player2"></span>
+                <p>X    <span>—</span></p>
+            </div>
+            <p class="feedback">
+            </p>
+            <section class="real-box">
+                <div>
+                    <button class="tl"></button>
+                    <button class="t"></button>
+                    <button class="tr"></button>
+
+                    <button class="l"></button>
+                    <button class="m"></button>
+                    <button class="r"></button>
+
+                    <button class="lb"></button>
+                    <button class="b"></button>
+                    <button class="br"></button>
+                </div>
+            </section>
+            <button>Restart</button>
+        </section>
+    </section>
+</body>
+</html>
