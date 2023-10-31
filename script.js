@@ -81,28 +81,6 @@ const duo = (function () {
 
 
 const checkMatch = function () {
-    function update () {
-        if (gameButtons[m].textContent === 'X') {
-            users.score1 += 1;
-            users.firstUserScore.textContent = `${users.score1}`;
-
-            if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
-                feedback.textContent = 'You conquered this round!';
-            } else {
-                feedback.textContent = `${users.user1.textContent} conquered this round!`;
-            }
-        } else if (gameButtons[m].textContent === '🌔') {
-            users.score2 += 1;
-            users.secUserScore.textContent = `${users.score2}`;
-
-            if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
-                feedback.textContent = 'You lost this round.';
-            } else {
-                feedback.textContent = `${users.user2.textContent} conquered this round!`;
-            }
-        }
-    }
-
     for (m = 0; m < 7; m += 3) {
         // Horizontal buttons
         if ((gameButtons[m].textContent === '🌔' || gameButtons[m].textContent === 'X') && gameButtons[m].textContent === gameButtons[m+1].textContent && gameButtons[m+1].textContent === gameButtons[m+2].textContent) {
@@ -110,7 +88,25 @@ const checkMatch = function () {
             gameButtons[m+1].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
             gameButtons[m+2].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
 
-            update();
+            if (gameButtons[m].textContent === 'X') {
+                users.score1 += 1;
+                users.firstUserScore.textContent = `${users.score1}`;
+    
+                if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+                    feedback.textContent = 'You conquered this round!';
+                } else {
+                    feedback.textContent = `${users.user1.textContent} conquered this round!`;
+                }
+            } else if (gameButtons[m].textContent === '🌔') {
+                users.score2 += 1;
+                users.secUserScore.textContent = `${users.score2}`;
+    
+                if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+                    feedback.textContent = 'You lost this round.';
+                } else {
+                    feedback.textContent = `${users.user2.textContent} conquered this round!`;
+                }
+            }
             setTimeout(emptyButtons, 1500);
         // Vertical buttons
         } else if ((gameButtons[m/3].textContent === '🌔' || gameButtons[m/3].textContent === 'X') && gameButtons[m/3].textContent === gameButtons[m/3+3].textContent && gameButtons[m/3+3].textContent === gameButtons[m/3+6].textContent) {
@@ -118,7 +114,25 @@ const checkMatch = function () {
             gameButtons[m/3+3].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
             gameButtons[m/3+6].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
 
-            update();
+            if (gameButtons[m/3].textContent === 'X') {
+                users.score1 += 1;
+                users.firstUserScore.textContent = `${users.score1}`;
+    
+                if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+                    feedback.textContent = 'You conquered this round!';
+                } else {
+                    feedback.textContent = `${users.user1.textContent} conquered this round!`;
+                }
+            } else if (gameButtons[m/3].textContent === '🌔') {
+                users.score2 += 1;
+                users.secUserScore.textContent = `${users.score2}`;
+    
+                if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+                    feedback.textContent = 'You lost this round.';
+                } else {
+                    feedback.textContent = `${users.user2.textContent} conquered this round!`;
+                }
+            }
             setTimeout(emptyButtons, 1500);
         // Diagonal buttons
         } else if ((gameButtons[m/1.5].textContent === '🌔' || gameButtons[m/1.5].textContent === 'X') && gameButtons[m/1.5].textContent === gameButtons[4].textContent && gameButtons[4].textContent === gameButtons[-m/1.5+8].textContent) {
@@ -127,11 +141,30 @@ const checkMatch = function () {
                 gameButtons[4].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
                 gameButtons[-m/1.5+8].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
     
-                update();
+                if (gameButtons[m/1.5].textContent === 'X') {
+                    users.score1 += 1;
+                    users.firstUserScore.textContent = `${users.score1}`;
+        
+                    if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+                        feedback.textContent = 'You conquered this round!';
+                    } else {
+                        feedback.textContent = `${users.user1.textContent} conquered this round!`;
+                    }
+                } else if (gameButtons[m/1.5].textContent === '🌔') {
+                    users.score2 += 1;
+                    users.secUserScore.textContent = `${users.score2}`;
+        
+                    if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+                        feedback.textContent = 'You lost this round.';
+                    } else {
+                        feedback.textContent = `${users.user2.textContent} conquered this round!`;
+                    }
+                }
                 setTimeout(emptyButtons, 1500);
             }
         } 
     }
+    // Tie
     if (Array.from(gameButtons).every(button => button.textContent !== '')) {
         feedback.textContent = "It's a tie :|";
         setTimeout(emptyButtons, 1500);
