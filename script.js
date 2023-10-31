@@ -20,6 +20,8 @@ restartButton.addEventListener('click', () => {
     if (select.options[select.selectedIndex].value === 'friend') {
         duo.takeNames();
     }
+    users.score1 = 0;
+    users.score2 = 0;
     users.firstUserScore.textContent = '—';
     users.secUserScore.textContent = '—';
     emptyButtons();
@@ -31,7 +33,7 @@ function emptyButtons () {
     gameButtons.forEach((button) => {
         button.textContent = '';
         button.style.backgroundColor = '';
-        feedback.textContent = 'Begin Game';
+        feedback.textContent = 'Play Round';
     })
 }
 
