@@ -25,7 +25,9 @@ restartButton.addEventListener('click', () => {
     emptyButtons();
 })
 
+let buttonsEmptied = true;
 function emptyButtons () {
+    buttonsEmptied = true;
     gameButtons.forEach((button) => {
         button.textContent = '';
         button.style.backgroundColor = '';
@@ -44,8 +46,13 @@ const duo = (function () {
         gameButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 if (!button.textContent) {
+                    if (buttonsEmptied) {
+                        currentPick = 'X';
+                        buttonsEmptied = false;
+                    } else {
+                        currentPick = currentPick === 'X' ? '🌔' : 'X';
+                    }
                     button.textContent = currentPick;
-                    currentPick = currentPick === 'X' ? '🌔' : 'X';
                     checkMatch();
                 }
             })
