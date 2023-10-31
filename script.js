@@ -94,7 +94,7 @@ const checkMatch = function () {
             gameButtons[m+2].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
 
             update();
-            setTimeout(emptyButtons, 2000);
+            setTimeout(emptyButtons, 1500);
         // Vertical buttons
         } else if ((gameButtons[m/3].textContent === '🌔' || gameButtons[m/3].textContent === 'X') && gameButtons[m/3].textContent === gameButtons[m/3+3].textContent && gameButtons[m/3+3].textContent === gameButtons[m/3+6].textContent) {
             gameButtons[m/3].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
@@ -102,7 +102,7 @@ const checkMatch = function () {
             gameButtons[m/3+6].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
 
             update();
-            setTimeout(emptyButtons, 2000);
+            setTimeout(emptyButtons, 1500);
         // Diagonal buttons
         } else if ((gameButtons[m/1.5].textContent === '🌔' || gameButtons[m/1.5].textContent === 'X') && gameButtons[m/1.5].textContent === gameButtons[4].textContent && gameButtons[4].textContent === gameButtons[-m/1.5+8].textContent) {
             if (m !== 6) {
@@ -111,12 +111,12 @@ const checkMatch = function () {
                 gameButtons[-m/1.5+8].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
     
                 update();
-                setTimeout(emptyButtons, 2000);
+                setTimeout(emptyButtons, 1500);
             }
         } 
     }
     if (Array.from(gameButtons).every(button => button.textContent !== '')) {
         feedback.textContent = "It's a tie :|";
-        setTimeout(emptyButtons, 2000);
+        setTimeout(emptyButtons, 1500);
     }
 }
