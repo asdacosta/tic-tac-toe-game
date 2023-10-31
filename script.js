@@ -28,12 +28,13 @@ const duo = (function () {
     }
 
     function choosePick () {
-        let currentPick = '✯';
+        let currentPick = 'X';
         gameButtons.forEach((button) => {
             button.addEventListener('click', () => {
                 if (!button.textContent) {
                     button.textContent = currentPick;
-                    currentPick = currentPick === '✯' ? '🌔' : '✯';
+                    currentPick = currentPick === 'X' ? '🌔' : 'X';
+                    checkMatch();
                 }
             })
         })
@@ -48,3 +49,25 @@ const duo = (function () {
 
     return {takeNames};
 })()
+
+
+const checkMatch = function () {
+    for (m = 0; m < 7; m += 3) {
+        // Horizontal buttons
+        if ((gameButtons[m].textContent === '🌔' || gameButtons[m].textContent === 'X') && gameButtons[m].textContent === gameButtons[m+1].textContent && gameButtons[m+1].textContent === gameButtons[m+2].textContent) {
+            gameButtons[m].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+            gameButtons[m+1].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
+            gameButtons[m+2].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+        // Vertical buttons
+        } else if ((gameButtons[m/3].textContent === '🌔' || gameButtons[m/3].textContent === 'X') && gameButtons[m/3].textContent === gameButtons[m/3+3].textContent && gameButtons[m/3+3].textContent === gameButtons[m/3+6].textContent) {
+            gameButtons[m/3].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+            gameButtons[m/3+3].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
+            gameButtons[m/3+6].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+        // Diagonal buttons
+        } else if ((gameButtons[m/1.5].textContent === '🌔' || gameButtons[m/1.5].textContent === 'X') && gameButtons[m/1.5].textContent === gameButtons[(4*m)/3].textContent && gameButtons[(4*m)/3].textContent === gameButtons[-m/1.5+8].textContent) {
+            gameButtons[m/1.5].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+            gameButtons[(4*m)/3].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
+            gameButtons[-m/1.5+8].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+        }
+    }
+}
