@@ -7,17 +7,21 @@ const feedback = document.querySelector('.feedback');
 const users = (function () {
     const user1 = document.querySelector('.player1');
     const user2 = document.querySelector('.player2');
+    const firstUserScore = document.querySelector('.score1');
+    const secUserScore = document.querySelector('.score2');
 
     let score1 = 0;
     let score2 = 0;
 
-    return {user1, user2, score1, score2};
+    return {user1, user2, firstUserScore, secUserScore, score1, score2};
 })()
 
 restartButton.addEventListener('click', () => {
     if (select.options[select.selectedIndex].value === 'friend') {
         duo.takeNames();
     }
+    users.firstUserScore.textContent = '—';
+    users.secUserScore.textContent = '—';
     emptyButtons();
 })
 
@@ -60,13 +64,10 @@ const duo = (function () {
 
 
 const checkMatch = function () {
-    const firstUserScore = document.querySelector('.score1');
-    const secUserScore = document.querySelector('.score2');
-
     function update () {
         if (gameButtons[m].textContent === 'X') {
             users.score1 += 1;
-            firstUserScore.textContent = `${users.score1}`;
+            users.firstUserScore.textContent = `${users.score1}`;
 
             if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
                 feedback.textContent = 'You conquered this round!';
@@ -75,7 +76,7 @@ const checkMatch = function () {
             }
         } else if (gameButtons[m].textContent === '🌔') {
             users.score2 += 1;
-            secUserScore.textContent = `${users.score2}`;
+            users.secUserScore.textContent = `${users.score2}`;
 
             if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
                 feedback.textContent = 'You lost this round.';
