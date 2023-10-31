@@ -1,5 +1,6 @@
 const select = document.querySelector('select');
 const restartButton = document.querySelector('section + button');
+const gameButtons = document.querySelectorAll('.real-box button');
 
 const score1 = document.querySelector('.score1');
 const score2 = document.querySelector('.score2');
@@ -21,6 +22,16 @@ const duo = (function () {
 
     select.addEventListener('change', () => {
         takeNames();
+    })
+
+    let currentPick = 'X';
+    gameButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            if (!button.textContent) {
+                button.textContent = currentPick;
+                currentPick = currentPick === 'X' ? 'O' : 'X';
+            }
+        })
     })
 
     return {takeNames};
