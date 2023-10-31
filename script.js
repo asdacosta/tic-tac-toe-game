@@ -2,8 +2,13 @@ const select = document.querySelector('select');
 const restartButton = document.querySelector('section + button');
 const gameButtons = document.querySelectorAll('.real-box button');
 
-const score1 = document.querySelector('.score1');
-const score2 = document.querySelector('.score2');
+
+const users = (function () {
+    const user1 = document.querySelector('.player1');
+    const user2 = document.querySelector('.player2');
+
+    return {user1, user2};
+})()
 
 restartButton.addEventListener('click', () => {
     if (select.options[select.selectedIndex].value === 'friend') {
@@ -20,11 +25,8 @@ function emptyButtons () {
 
 const duo = (function () {
     function takeNames () {
-        const player1 = document.querySelector('.player1');
-        const player2 = document.querySelector('.player2');
-
-            player1.textContent = prompt('Enter first player name:');
-            player2.textContent = prompt('Enter second player name:');
+            users.user1.textContent = prompt('Enter first player name:');
+            users.user2.textContent = prompt('Enter second player name:');
     }
 
     function choosePick () {
@@ -52,6 +54,10 @@ const duo = (function () {
 
 
 const checkMatch = function () {
+
+    const score1 = document.querySelector('.score1');
+    const score2 = document.querySelector('.score2');
+
     for (m = 0; m < 7; m += 3) {
         // Horizontal buttons
         if ((gameButtons[m].textContent === '🌔' || gameButtons[m].textContent === 'X') && gameButtons[m].textContent === gameButtons[m+1].textContent && gameButtons[m+1].textContent === gameButtons[m+2].textContent) {
