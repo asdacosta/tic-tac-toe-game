@@ -40,7 +40,15 @@ function emptyButtons () {
 const duo = (function () {
     function takeNames () {
             users.user1.textContent = prompt('Enter first player name:');
+            while (users.user1.textContent === '') {
+                alert('Kindly enter a name.');
+                users.user1.textContent = prompt('Enter first player name:');
+            }
             users.user2.textContent = prompt('Enter second player name:');
+            while (users.user2.textContent === '') {
+                alert('Kindly enter a name.');
+                users.user2.textContent = prompt('Enter second player name:');
+            }
     }
 
     function choosePick () {
