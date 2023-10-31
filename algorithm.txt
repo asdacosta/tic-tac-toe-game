@@ -1,0 +1,33 @@
+Problem
+Tic tac toe game for two players and against AI with different levels of difficulty.
+
+
+Algorithm
+Create a module for 'Duo' selection
+1. Set an prompt to take name of both players
+    - At page load and a click on 'Restart' button.
+2. Select players elements with PLAYER1 and PLAYER2
+    - Let their content be the values from the alert
+3. Select scores elements with SCORE1 and score2
+
+
+Pseudo-code
+1. 
+    CONST duoOption = get('.duo');
+    CONST restartButton = get('section + button');
+2. 
+    duoOption.ADDEVENTLISTENER('click', (() => {
+        CONST player1 = get('.player1');
+        CONST player2 = get('.player2');
+
+        player1.TEXTCONTENT = Use prompt to take player 1 name
+        player2.TEXTCONTENT = Use prompt to take player 2 name
+
+        restartButton.ADDEVENTLISTENER('click', () => {
+            CONST player1 = Use prompt to take player 1 name
+            CONST player2 = Use prompt to take player 2 name
+        })
+
+        CONST score1 = get('.score1');
+        CONST score2 = get('.score2');
+    })())
