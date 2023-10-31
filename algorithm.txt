@@ -8,26 +8,52 @@ Create a module for 'Duo' selection
     - At page load and a click on 'Restart' button.
 2. Select players elements with PLAYER1 and PLAYER2
     - Let their content be the values from the alert
-3. Select scores elements with SCORE1 and score2
+3. Select scores elements with SCORE1 and SCORE2
+4. Select game buttons with GAMEBUTTONS variable
+6. Use for-each to loop over GAMEBUTTONS
+    - Add click event to all buttons
+        * First click should have a content of 'X'
+        * Second click should have a content of 'O'
+        * Alternate
 
 
 Pseudo-code
 1. 
-    CONST duoOption = get('.duo');
+    CONST select = get('select');
     CONST restartButton = get('section + button');
+    CONST gameButtons = getAll('.real-box > button');
+
+    CONST score1 = get('.score1');
+    CONST score2 = get('.score2');
+
+    restartButton.ADDEVENTLISTENER('CLICK', () => {
+        duo.takeNames();
+    })
 2. 
-    duoOption.ADDEVENTLISTENER('click', (() => {
+    CONST duo = (FXN () {
+        FXN takeNames () {
         CONST player1 = get('.player1');
         CONST player2 = get('.player2');
 
-        player1.TEXTCONTENT = Use prompt to take player 1 name
-        player2.TEXTCONTENT = Use prompt to take player 2 name
+        IF (option.value is 'friend')
+            player1.TEXTCONTENT = PROMPT('Enter first player name:')
+            player2.TEXTCONTENT = PROMPT('Enter second player name:)
+        END-IF
+        }
+        EDN-FXN
 
-        restartButton.ADDEVENTLISTENER('click', () => {
-            CONST player1 = Use prompt to take player 1 name
-            CONST player2 = Use prompt to take player 2 name
+        select.ADDEVENTLISTENER('CHANGE', () => {
+            takeNames();
         })
 
-        CONST score1 = get('.score1');
-        CONST score2 = get('.score2');
-    })())
+        LET currentPick = 'X';
+        gameButtons.FOREACH(button, () => {
+            button.ADDEVENTLISTENER('CLICK', () => {
+                IF (!button.TEXTCONTENT)
+                    button.TEXTCONTENT = currentPick;
+                    currentPick = currentPick === 'X' ? 'O' : 'X';
+                END-IF
+            })
+        })
+
+    })()
