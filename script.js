@@ -3,6 +3,19 @@ const restartButton = document.querySelector('section + button');
 const gameButtons = document.querySelectorAll('.real-box button');
 const feedback = document.querySelector('.feedback');
 
+const hint = (function () {
+    const icon = document.querySelector('img');
+    const span = document.querySelector('.bulb span');
+    icon.addEventListener('mouseover', () => {
+        span.innerHTML = 'Bonne Chance 🌟<br>The first player to form a line wins the round.<br>To win the game, a player must win three rounds.';
+        span.style.padding = '10px';
+    })
+    icon.addEventListener('mouseout', () => {
+        span.textContent = '';
+        span.style.padding = '0';
+    })
+})()
+
 const users = (function () {
     const user1 = document.querySelector('.player1');
     const user2 = document.querySelector('.player2');
