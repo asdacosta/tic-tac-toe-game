@@ -24,6 +24,7 @@ restartButton.addEventListener('click', () => {
     users.firstUserScore.textContent = '—';
     users.secUserScore.textContent = '—';
     emptyButtons();
+    feedback.textContent = 'Begin Game';
 })
 
 let buttonsEmptied = true;
@@ -186,11 +187,44 @@ const checkMatch = function () {
                 }
                 setTimeout(emptyButtons, 1000);
             }
+            declareGameWinner();
         } 
     }
     // Tie
     if (Array.from(gameButtons).every(button => button.textContent !== '') && feedback.textContent === 'Play Round') {
         feedback.textContent = "It's a tie :|";
         setTimeout(emptyButtons, 1000);
+    }
+}
+
+const declareGameWinner = function () {
+    if (users.score1 === 3) {
+        if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+            feedback.textContent = 'You won the game 🏆';
+        } else {
+            feedback.textContent = `${users.user1.textContent} won the game 🏅`;
+        }
+        users.score1 = 0;
+        users.score2 = 0;
+        users.firstUserScore.textContent = '—';
+        users.secUserScore.textContent = '—';
+        setTimeout(function () {
+            emptyButtons();
+            feedback.textContent = 'Begin Game';
+        }, 1000);
+    } else if (users.score2 === 3) {
+        if (users.user1.textContent === 'User' && users.user2.textContent === 'AI') {
+            feedback.textContent = 'You lost the game 😞';
+        } else {
+        feedback.textContent = `${users.user2.textContent} won the game 🏅`;
+        }
+        users.score1 = 0;
+        users.score2 = 0;
+        users.firstUserScore.textContent = '—';
+        users.secUserScore.textContent = '—';
+        setTimeout(function () {
+            emptyButtons();
+            feedback.textContent = 'Begin Game';
+        }, 1000);
     }
 }
