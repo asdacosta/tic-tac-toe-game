@@ -32,6 +32,9 @@ function emptyButtons () {
     gameButtons.forEach((button) => {
         button.textContent = '';
         button.style.backgroundColor = '';
+        button.addEventListener('mouseover', () => {
+            button.style.backgroundColor = 'rgba(233, 233, 233, 0.1)';
+        })
         feedback.textContent = 'Play Round';
     })
 }
@@ -43,9 +46,18 @@ const duo = (function () {
                 alert('Kindly enter a name.');
                 users.user1.textContent = prompt('Enter first player name:');
             }
+            while (users.user1.textContent.length > 12) {
+                alert('Name should be less than 12 characters')
+                users.user1.textContent = prompt('Enter first player name:');
+            }
+
             users.user2.textContent = prompt('Enter second player name:');
             while (users.user2.textContent === '') {
                 alert('Kindly enter a name.');
+                users.user2.textContent = prompt('Enter second player name:');
+            }
+            while (users.user2.textContent.length > 12) {
+                alert('Name should be less than 12 characters')
                 users.user2.textContent = prompt('Enter second player name:');
             }
     }
@@ -53,6 +65,13 @@ const duo = (function () {
     function choosePick () {
         let currentPick = 'X';
         gameButtons.forEach((button) => {
+            button.addEventListener('mouseover', () => {
+                button.style.backgroundColor = 'rgba(233, 233, 233, 0.1)';
+            })
+            button.addEventListener('mouseout', () => {
+                button.style.backgroundColor = 'transparent';
+            })
+
             button.addEventListener('click', () => {
                 if (!button.textContent) {
                     if (buttonsEmptied) {
@@ -63,6 +82,12 @@ const duo = (function () {
                     }
                     button.textContent = currentPick;
                     checkMatch();
+                    
+                    if (button.textContent !== '') {
+                        button.addEventListener('mouseover', () => {
+                        button.style.backgroundColor = 'transparent';
+                        })
+                    }
                 }
             })
         })
