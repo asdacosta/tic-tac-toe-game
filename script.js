@@ -3,7 +3,6 @@ const restartButton = document.querySelector('section + button');
 const gameButtons = document.querySelectorAll('.real-box button');
 const feedback = document.querySelector('.feedback');
 
-
 const users = (function () {
     const user1 = document.querySelector('.player1');
     const user2 = document.querySelector('.player2');
@@ -164,8 +163,7 @@ const checkMatch = function () {
             }
         } 
     }
-    // Tie
-    if (Array.from(gameButtons).every(button => button.textContent !== '')) {
+    if (Array.from(gameButtons).every(button => button.textContent !== '') && feedback.textContent === 'Play Round') {
         feedback.textContent = "It's a tie :|";
         setTimeout(emptyButtons, 1500);
     }
