@@ -106,7 +106,7 @@ const checkMatch = function () {
                     feedback.textContent = `${users.user2.textContent} conquered this round!`;
                 }
             }
-            setTimeout(emptyButtons, 1500);
+            setTimeout(emptyButtons, 1000);
         // Vertical buttons
         } else if ((gameButtons[m/3].textContent === '🌔' || gameButtons[m/3].textContent === 'X') && gameButtons[m/3].textContent === gameButtons[m/3+3].textContent && gameButtons[m/3+3].textContent === gameButtons[m/3+6].textContent) {
             gameButtons[m/3].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
@@ -132,7 +132,7 @@ const checkMatch = function () {
                     feedback.textContent = `${users.user2.textContent} conquered this round!`;
                 }
             }
-            setTimeout(emptyButtons, 1500);
+            setTimeout(emptyButtons, 1000);
         // Diagonal buttons
         } else if ((gameButtons[m/1.5].textContent === '🌔' || gameButtons[m/1.5].textContent === 'X') && gameButtons[m/1.5].textContent === gameButtons[4].textContent && gameButtons[4].textContent === gameButtons[-m/1.5+8].textContent) {
             if (m !== 6) {
@@ -159,12 +159,13 @@ const checkMatch = function () {
                         feedback.textContent = `${users.user2.textContent} conquered this round!`;
                     }
                 }
-                setTimeout(emptyButtons, 1500);
+                setTimeout(emptyButtons, 1000);
             }
         } 
     }
+    // Tie
     if (Array.from(gameButtons).every(button => button.textContent !== '') && feedback.textContent === 'Play Round') {
         feedback.textContent = "It's a tie :|";
-        setTimeout(emptyButtons, 1500);
+        setTimeout(emptyButtons, 1000);
     }
 }
