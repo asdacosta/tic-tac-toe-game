@@ -76,6 +76,29 @@ const duo = (function () {
             }
     }
 
+    // Button parameter will make eventListener target specific button clicked. Access to the button in the Returned fxn will be retained.
+    function clicker (button) {
+        // EventListerner works with closures, hence the return
+        return() => {
+            if (!button.textContent) {
+                if (buttonsEmptied) {
+                    currentPick = 'X';
+                    buttonsEmptied = false;
+                } else {
+                    currentPick = currentPick === 'X' ? '🌔' : 'X';
+                }
+                button.textContent = currentPick;
+                checkMatch();
+                
+                if (button.textContent !== '') {
+                    button.addEventListener('mouseover', () => {
+                    button.style.backgroundColor = 'transparent';
+                    });
+                }
+            }
+        };
+    }
+
     function choosePick () {
         let currentPick = 'X';
         gameButtons.forEach((button) => {
@@ -86,24 +109,7 @@ const duo = (function () {
                 button.style.backgroundColor = 'transparent';
             })
 
-            button.addEventListener('click', () => {
-                if (!button.textContent) {
-                    if (buttonsEmptied) {
-                        currentPick = 'X';
-                        buttonsEmptied = false;
-                    } else {
-                        currentPick = currentPick === 'X' ? '🌔' : 'X';
-                    }
-                    button.textContent = currentPick;
-                    checkMatch();
-                    
-                    if (button.textContent !== '') {
-                        button.addEventListener('mouseover', () => {
-                        button.style.backgroundColor = 'transparent';
-                        })
-                    }
-                }
-            })
+            button.addEventListener('click', clicker(button))
         })
     }
 
@@ -200,8 +206,8 @@ const checkMatch = function () {
                 }
                 setTimeout(emptyButtons, 1000);
             }
-            declareGameWinner();
-        } 
+        }
+        declareGameWinner();
     }
     // Tie
     if (Array.from(gameButtons).every(button => button.textContent !== '') && feedback.textContent === 'Play Round') {
