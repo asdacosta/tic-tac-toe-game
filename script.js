@@ -167,7 +167,7 @@ const checkMatch = function () {
                 }
             }
 
-            setTimeout(stopClick, 0);
+            stopClick();
             setTimeout(function () {
                 emptyButtons();
                 resumeClick();
@@ -199,7 +199,7 @@ const checkMatch = function () {
                 }
             }
 
-            setTimeout(stopClick, 0);
+            stopClick();
             setTimeout(function () {
                 emptyButtons();
                 resumeClick();
@@ -232,7 +232,7 @@ const checkMatch = function () {
                     }
                 }
 
-            setTimeout(stopClick, 0);
+            stopClick();
             setTimeout(function () {
                 emptyButtons();
                 resumeClick();
@@ -268,11 +268,10 @@ const declareGameWinner = function () {
         users.score2 = 0;
         users.firstUserScore.textContent = '—';
         users.secUserScore.textContent = '—';
-        setTimeout(function () {
-            gameButtons.forEach((button) => {
-                button.style.pointerEvents = 'none';
-            })
-        }, 0)
+
+        gameButtons.forEach((button) => {
+            button.style.pointerEvents = 'none';
+        })
         setTimeout(function () {
             emptyButtons();
             gameButtons.forEach((button) => {
