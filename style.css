@@ -35,7 +35,6 @@ h1 {
     font-size: 2rem;
     color: rgb(233, 233, 233);
     margin-bottom: 50px;
-    text-decoration: line-through;
 
     transition: color 5s ease;
 }
