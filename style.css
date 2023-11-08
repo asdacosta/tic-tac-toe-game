@@ -37,7 +37,7 @@ h1 {
     margin-bottom: 50px;
     text-decoration: line-through;
 
-    transition: color 2s ease;
+    transition: color 5s ease;
 }
 
 body > section > section {
