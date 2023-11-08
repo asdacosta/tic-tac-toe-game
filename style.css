@@ -36,6 +36,8 @@ h1 {
     color: rgb(233, 233, 233);
     margin-bottom: 50px;
     text-decoration: line-through;
+
+    transition: color 2s ease;
 }
 
 body > section > section {
