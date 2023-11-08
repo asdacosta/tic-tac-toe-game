@@ -60,8 +60,8 @@ const duo = (function () {
                 alert('Kindly enter a name.');
                 users.user1.textContent = prompt('Enter first player name:');
             }
-            while (users.user1.textContent.length > 12) {
-                alert('Name should be less than 12 characters')
+            while (users.user1.textContent.length > 12 || users.user1.textContent.length === 1) {
+                alert('Name should be 2 to 12 characters long.')
                 users.user1.textContent = prompt('Enter first player name:');
             }
 
@@ -70,8 +70,12 @@ const duo = (function () {
                 alert('Kindly enter a name.');
                 users.user2.textContent = prompt('Enter second player name:');
             }
-            while (users.user2.textContent.length > 12) {
-                alert('Name should be less than 12 characters')
+            while (users.user2.textContent.length > 12 || users.user2.textContent.length === 1) {
+                alert('Name should be 2 to 12 characters long.')
+                users.user2.textContent = prompt('Enter second player name:');
+            }
+            while (users.user2.textContent === users.user1.textContent) {
+                alert('Names should be different.');
                 users.user2.textContent = prompt('Enter second player name:');
             }
     }
