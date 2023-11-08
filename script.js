@@ -281,3 +281,20 @@ const declareGameWinner = function () {
         }, 2000); 
     }
 }
+
+const transitionHeaderColor = (function () {
+    function changeColor () {
+        let red = Math.floor(Math.random() * 256);
+        let green = Math.floor(Math.random() * 256);
+        let blue = Math.floor(Math.random() * 256);
+    
+        let color = `rgb(${red}, ${green}, ${blue})`;
+        const header = document.querySelector('h1');
+        header.style.color = color;
+    }
+    
+    setInterval(changeColor, 2000);
+})()
+
+
+
