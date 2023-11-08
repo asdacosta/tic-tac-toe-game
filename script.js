@@ -106,7 +106,10 @@ const duo = (function () {
                 button.style.backgroundColor = 'rgba(233, 233, 233, 0.1)';
             })
             button.addEventListener('mouseout', () => {
-                button.style.backgroundColor = 'transparent';
+                if (!thereIsAMatch) {
+                    button.style.backgroundColor = 'transparent';
+                }
+                thereIsAMatch = false;
             })
 
             button.addEventListener('click', clicker(button))
@@ -123,7 +126,7 @@ const duo = (function () {
     return {takeNames, choosePick};
 })()
 
-
+let thereIsAMatch = false; // To avoid making green buttons transparent (by mouseout eventListener) when there's a match
 const checkMatch = function () {
     function stopClick () {
         gameButtons.forEach((button) => {
@@ -142,6 +145,7 @@ const checkMatch = function () {
             gameButtons[m].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
             gameButtons[m+1].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
             gameButtons[m+2].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+            thereIsAMatch = true;
 
             if (gameButtons[m].textContent === 'X') {
                 users.score1 += 1;
@@ -173,6 +177,7 @@ const checkMatch = function () {
             gameButtons[m/3].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
             gameButtons[m/3+3].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
             gameButtons[m/3+6].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+            thereIsAMatch = true;
 
             if (gameButtons[m/3].textContent === 'X') {
                 users.score1 += 1;
@@ -205,6 +210,7 @@ const checkMatch = function () {
                 gameButtons[m/1.5].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
                 gameButtons[4].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
                 gameButtons[-m/1.5+8].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
+                thereIsAMatch = true
     
                 if (gameButtons[m/1.5].textContent === 'X') {
                     users.score1 += 1;
@@ -236,7 +242,7 @@ const checkMatch = function () {
         declareGameWinner();
     }
     // Tie
-    if (Array.from(gameButtons).every(button => button.textContent !== '') && feedback.textContent === 'Play Round') {
+    if (Array.from(gameButtons).every(button => button.textContent !== '') && thereIsAMatch === false) {
         feedback.textContent = "It's a tie :|";
         setTimeout(emptyButtons, 2000);
     }
