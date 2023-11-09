@@ -27,6 +27,14 @@ Create a CHECKMATCH module
             - Add 1 score to SCORE2 variable
             - Display user2 won in the feedback section
 
+Create PLAYWITHAI module
+1. Create RANDOM fxn
+    - Define RANDOMPICK fxn with contents of the CHOOSEPICK fxn
+        * In the for-each loop, if CURRENTPICK equals 'O'
+            - Freeze all buttons
+            - For each empty button, randomly pick one in 1s
+            - In 1s unfreeze buttons
+
 
 Pseudo-code
 1. 
@@ -77,15 +85,15 @@ Pseudo-code
             Under each of IFs
                 IF (gameButtons[m] === 'X')
                     score1 += 1;
-                    score1.TEXTCONTENT = `${score1}`;
+                    firstPlayerScore.TEXTCONTENT = `${score1}`;
                     IF (player1 === 'User' && player2 === 'AI')
                         feedback.TEXTCONTENT = `You conquered this round`
                     ELSE
                         feedback.TEXTCONTENT = `${player1} conquered this round`
                     END-IF
                 ELSE-IF (gameButtons[m] === 'O')
-                    score1 += 1;
-                    score2.TEXTCONTENT = `${score2}`;
+                    score2 += 1;
+                    secPlayerScore.TEXTCONTENT = `${score2}`;
                     IF (player1 === 'User' && player2 === 'AI')
                         feedback.TEXTCONTENT = `You lost this round`
                     ELSE
@@ -94,3 +102,44 @@ Pseudo-code
                 END-IF
         END-IF
     })()
+
+
+// PLAYWITHAI
+1.
+    FXN random ()
+        ** Contents of choosePick()
+
+        gameButtons.FOREACH((button) => {
+            ** Contents
+
+            IF (currentPick === 'O')
+                gameButtons.FOREACH((button) => {
+                    button.STYLE.POINTEREVENTS = 'none';
+                })
+
+                FXN getRandomIndex ()
+                    CONST isEmpty= ARRAY.FROM(gameButtons).some(button => button.TEXTCONTENT === '');
+
+                    IF (!isEmpty)
+                        RETURN 1;
+                    END-IF
+
+                    Let randomIndex;
+
+                    DO {
+                        randomIndex = MATH.FLOOR(MATH.RANDOM() * 9);
+                    } WHILE (gameButtons[randomIndex].TEXTCONTENT !== '')
+
+                    RETURN randomIndex;
+                END-FXN
+
+                CONST emptyIndex = getRandomIndex();
+
+                IF (emptyIndex !== 1)
+                    gameButtons[emptyIndex].TEXTCONTENT = 'O';
+                END-IF
+            END-IF
+
+            ** Event listener
+        })
+    END-FXN
