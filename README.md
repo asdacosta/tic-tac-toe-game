@@ -31,4 +31,4 @@ Developers, users, recruiters.
 | `imgs/bulb.png` | Icon created by Good Ware on [Flaticon](https://www.flaticon.com/free-icons/). |
 | `imgs/tictactoe-bg1.png` | Photo by Dilok Klaisataporn on [Istockphoto](https://www.istockphoto.com/). |
 
-
+[Game](https://asdacosta.github.io/tic-tac-toe-game/)
