@@ -120,12 +120,15 @@ const duo = (function () {
         })
     }
 
-    select.addEventListener('change', () => {
-        if (select.options[select.selectedIndex].value === 'friend') {
-            takeNames();
+    // Uncomment when you include logic for AI
+    // select.addEventListener('change', () => {
+        // if (select.options[select.selectedIndex].value === 'friend') {
+            setTimeout(() => {
+                takeNames(); 
+            }, 1000);
             choosePick();
-        }
-    })
+        // }
+    // })
 
     return {takeNames, choosePick};
 })()
@@ -214,7 +217,7 @@ const checkMatch = function () {
                 gameButtons[m/1.5].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
                 gameButtons[4].style.backgroundColor= 'rgba(172, 248, 86, 0.5)';
                 gameButtons[-m/1.5+8].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
-                thereIsAMatch = true
+                thereIsAMatch = true;
     
                 if (gameButtons[m/1.5].textContent === 'X') {
                     users.score1 += 1;
@@ -302,3 +305,64 @@ const transitionHeaderColor = (function () {
 
 
 
+
+
+// Logic for AI. Built the random legal move but the problem: AI still chooses after player wins.
+
+// const playWithAi = (function () {
+//     function pickRandom () {
+//         function getRandomIndex () {
+//             const isEmpty = Array.from(gameButtons).some(button => button.textContent === '');
+//             if (!isEmpty) {
+//                 return;
+//             }
+
+//             let randomIndex;
+//             do {
+//                 randomIndex = Math.floor(Math.random() * 9);
+//             } while (gameButtons[randomIndex].textContent !== '');
+//             return randomIndex;
+//         }
+
+//         gameButtons.forEach((button) => {
+//             button.addEventListener('mouseover', () => {
+//                 button.style.backgroundColor = 'rgba(233, 233, 233, 0.1)';
+//             })
+//             button.addEventListener('mouseout', () => {
+//                 if (!thereIsAMatch) {
+//                     button.style.backgroundColor = 'transparent';
+//                 }
+//                 thereIsAMatch = false;
+//             })
+
+//             button.addEventListener('click', () => {
+//                 if (!button.textContent) {
+//                     button.textContent = 'X';
+//                     gameButtons.forEach((button) => {
+//                         button.style.pointerEvents = 'none';
+//                     })
+    
+//                     const emptyIndex = getRandomIndex();
+//                         setTimeout(() => {
+//                             gameButtons[emptyIndex].textContent = '🌔';
+//                         }, 200);
+    
+//                     setTimeout(() => {
+//                         gameButtons.forEach((button) => {
+//                             button.style.pointerEvents = 'auto';
+//                         })
+//                     }, 200);
+
+//                     setTimeout(checkMatch, 200)
+
+//                     if (button.textContent !== '') {
+//                         button.addEventListener('mouseover', () => {
+//                         button.style.backgroundColor = 'transparent';
+//                         });
+//                     }
+//                 }
+//             });
+//         })
+//     }
+//     pickRandom();
+// })()
