@@ -146,7 +146,7 @@ const checkMatch = function () {
         })
     }
 
-    for (m = 0; m < 7; m += 3) {
+    for (let m = 0; m < 7; m += 3) {
         // Horizontal buttons
         if ((gameButtons[m].textContent === '🌔' || gameButtons[m].textContent === 'X') && gameButtons[m].textContent === gameButtons[m+1].textContent && gameButtons[m+1].textContent === gameButtons[m+2].textContent) {
             gameButtons[m].style.backgroundColor = 'rgba(172, 248, 86, 0.5)';
