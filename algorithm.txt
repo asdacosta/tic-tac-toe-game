@@ -138,6 +138,12 @@ Pseudo-code
                 IF (emptyIndex !== 1)
                     gameButtons[emptyIndex].TEXTCONTENT = 'O';
                 END-IF
+
+                SETTIMEOUT(FUNCTION () {
+                    gameButtons.FOREACH((button) => {
+                        button.STYLE.POINTEREVENTS = 'none';
+                    })
+                }, 1000)
             END-IF
 
             ** Event listener
