@@ -42,12 +42,8 @@ Builds tic tac toe game.
 ## 🎯 Relevance
 To solidify concepts of `Factory Functions and Module Pattern` in JavaScript. 
 
-## Intended Audience
+## 👥 Intended Audience
 Developers, users, recruiters.
-
-## Technologies
-* `XUbuntu` in Terminal
-* `VS` Code
 
 ## 📂 Files
 <details>
