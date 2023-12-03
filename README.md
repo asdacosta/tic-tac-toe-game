@@ -39,6 +39,16 @@ Yet to.
 ## 📝 Description
 Builds tic tac toe game.
 
+<details>
+<summary>Features</summary>
+
+* Interactive game board.
+* Enables duo players.
+* Declares winner after three rounds.
+* Restart to reset game.
+
+</details>
+
 ## 🎯 Relevance
 To solidify concepts of `Factory Functions and Module Pattern` in JavaScript. 
 
