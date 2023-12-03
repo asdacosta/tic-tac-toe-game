@@ -60,7 +60,7 @@ Developers, users, recruiters.
 | `script.js` | Add interactivity and logic for game. |
 | `algorithm.txt` | Algorithm for `JavaScript`. |
 | `imgs/*` | Images and icon used in the game. |
-|`view-imgs`| Contains the live demo and different screen views used in `README.md`.|
+|`view-imgs/*`| Live demo and different screen views used in `README.md`.|
 
 </details>
 
