@@ -16,7 +16,7 @@
 
 **Demo:**
 
-![Live Demo](./view-imgs/tictactoe-demo.gif)
+![Live Demo](./readme-assets/tictactoe-demo.gif)
 
 <details>
 
@@ -24,7 +24,7 @@
 
 **Desktop View:**
 
-<img src="./view-imgs/desktop.png" alt="desktop view">
+<img src="./readme-assets/desktop.png" alt="desktop view">
 <br>
 
 **Mobile View:**
@@ -66,7 +66,7 @@ Developers, users, recruiters.
 | `script.js` | Add interactivity and logic for game. |
 | `algorithm.txt` | Algorithm for `JavaScript`. |
 | `imgs/*` | Images and icon used in the game. |
-|`view-imgs/*`| Live demo and different screen views used in `README.md`.|
+|`readme-assets/*`| Live demo and different screen views used in `README.md`.|
 
 </details>
 
