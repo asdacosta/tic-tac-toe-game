@@ -105,7 +105,7 @@ option {
   font-weight: 600;
   line-height: 1.1rem;
   text-align: justify;
-  width: 11rem;
+  width: 11.5rem;
   height: auto;
 }
 
@@ -130,7 +130,7 @@ img:hover {
   border: 2px solid rgb(245, 217, 124);
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.5);
-  margin: 0 2rem;
+  margin: 0 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
