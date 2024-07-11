@@ -1,153 +1,154 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.2rem;
-    letter-spacing: 1.2px;
-    border: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1.2px;
+  border: none;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    background-image: url(imgs/tictactoe-bg1.png);
-    background-size: cover;
-    background-position: center center;
-    height: 100vh;
+  background-image: url(imgs/tictactoe-bg1.png);
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
 }
 
 body > section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
 
-    min-width: 450px;
-    max-width: 1200px;
-    height: 800px;
+  min-width: 450px;
+  max-width: 1200px;
+  height: 800px;
 }
 
 h1 {
-    font-size: 2rem;
-    color: rgb(233, 233, 233);
-    margin-bottom: 50px;
-    cursor: context-menu;
+  font-size: 2rem;
+  color: rgb(233, 233, 233);
+  margin-bottom: 50px;
+  cursor: context-menu;
 
-    transition: color 5s ease;
+  transition: color 5s ease;
 }
 
 body > section > section {
-    flex: 1 1 auto;
-    width: 100%;
-    background: linear-gradient(to right, rgba(80, 79, 79, 0.5), rgba(0, 0, 0, 0.5));
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
-    padding: 3rem;
+  flex: 1 1 auto;
+  width: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(80, 79, 79, 0.5),
+    rgba(0, 0, 0, 0.5)
+  );
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  padding: 3rem;
 
-    display: grid;
-    grid-template: 1.5fr 1fr 9fr 1fr / repeat(6, 1fr);
-    gap: 1rem;
+  display: grid;
+  grid-template: 1.5fr 1fr 9fr 1fr / repeat(6, 1fr);
+  gap: 1rem;
 }
 
 select {
-    grid-row: 1 / span 1;
-    align-self: flex-start;
-    font-size: 1rem;
-    text-align: center;
-    color: white;
-    border-bottom: 3px solid rgb(248, 212, 95);
-    background: none;
-    cursor: pointer;
+  grid-row: 1 / span 1;
+  align-self: flex-start;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  border-bottom: 3px solid rgb(248, 212, 95);
+  background: none;
+  cursor: pointer;
 }
 
 option {
-    font-size: 1rem;
-    color: black;
-    background-color: rgb(250, 218, 112);
+  font-size: 1rem;
+  color: black;
+  background-color: rgb(250, 218, 112);
 }
 
 .players {
-    grid-column: span 2;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    font-weight: 900;
-    max-width: 300px;
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 900;
+  max-width: 300px;
 }
 
 .feedback {
-    grid-column: 2 / -2;
-    color: white;
-    text-align: center;
+  grid-column: 2 / -2;
+  color: white;
+  text-align: center;
 }
 
 .bulb {
-    position: relative;
-    grid-template: span 1 / span 1;
-    justify-self: flex-end;
+  position: relative;
+  grid-template: span 1 / span 1;
+  justify-self: flex-end;
 }
 
 .bulb span {
-    position: absolute;
-    left: 80px;
-    border-radius: 20px;
-    background-color: rgba(248, 212, 95, 0.7);
-    font-size: 0.75rem;
-    font-weight: 600;
-    line-height: 1.1rem;
-    text-align: justify;
-    width: 11.5rem;
-    height: auto;
+  position: absolute;
+  top: 3.5rem;
+  right: -1rem;
+  border-radius: 20px;
+  background-color: rgba(248, 212, 95, 0.7);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+  text-align: justify;
+  width: 11rem;
+  height: auto;
 }
 
 .bulb span::first-line {
-    font-size: 1.15rem;
-    line-height: 2rem;
+  font-size: 1rem;
+  line-height: 2rem;
 }
 
 img {
-    background-color: rgba(233, 233, 233, 0.2);
-    border-radius: 20px;
-    cursor: pointer;
-    width: 50px;
+  background-color: rgba(233, 233, 233, 0.2);
+  border-radius: 20px;
+  cursor: pointer;
+  width: 50px;
 }
 
 img:hover {
-    box-shadow: 5px 5px 10px rgba(248, 239, 108, 0.5);
+  box-shadow: 5px 5px 10px rgba(248, 239, 108, 0.5);
 }
 
 .real-box {
-    grid-column: 1 / -1;
-    border: 2px solid rgb(245, 217, 124);
-    border-radius: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    margin: 0 2rem;
-    /* min-width: 350px; */
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-column: 1 / -1;
+  border: 2px solid rgb(245, 217, 124);
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .real-box > div {
-    display: flex;
-    flex-wrap: wrap;
-    width: 303px;
-    height: 303px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  width: 15rem;
+  height: 15rem;
 }
 
 .real-box button {
-    background: none;
-    width: 100px;
-    height: 100px;
-    border-radius: 15px;
-    cursor: pointer;
-    color: white;
-    font-size: 2rem;
+  background: none;
+  border-radius: 15px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.8rem;
 }
 
 /* .real-box button:hover {
@@ -155,78 +156,78 @@ img:hover {
 } */
 
 .tl {
-    border-right: 2px solid rgb(245, 217, 124);
-    border-bottom: 2px solid rgb(245, 217, 124);
+  border-right: 2px solid rgb(245, 217, 124);
+  border-bottom: 2px solid rgb(245, 217, 124);
 }
 
 .t {
-    border-left: 2px solid rgb(245, 217, 124);
-    border-right: 2px solid rgb(245, 217, 124);
-    border-bottom: 2px solid rgb(245, 217, 124);
+  border-left: 2px solid rgb(245, 217, 124);
+  border-right: 2px solid rgb(245, 217, 124);
+  border-bottom: 2px solid rgb(245, 217, 124);
 }
 
 .tr {
-    border-left: 2px solid rgb(245, 217, 124);
-    border-bottom: 2px solid rgb(245, 217, 124);
+  border-left: 2px solid rgb(245, 217, 124);
+  border-bottom: 2px solid rgb(245, 217, 124);
 }
 
 .l {
-    border-top: 2px solid rgb(245, 217, 124);
-    border-right: 2px solid rgb(245, 217, 124);
-    border-bottom: 2px solid rgb(245, 217, 124);
+  border-top: 2px solid rgb(245, 217, 124);
+  border-right: 2px solid rgb(245, 217, 124);
+  border-bottom: 2px solid rgb(245, 217, 124);
 }
 
 .m {
-    border: 2px solid rgb(245, 217, 124);
+  border: 2px solid rgb(245, 217, 124);
 }
 
 .r {
-    border-top: 2px solid rgb(245, 217, 124);
-    border-left: 2px solid rgb(245, 217, 124);
-    border-bottom: 2px solid rgb(245, 217, 124);
+  border-top: 2px solid rgb(245, 217, 124);
+  border-left: 2px solid rgb(245, 217, 124);
+  border-bottom: 2px solid rgb(245, 217, 124);
 }
 
 .lb {
-    border-top: 2px solid rgb(245, 217, 124);
-    border-right: 2px solid rgb(245, 217, 124);
+  border-top: 2px solid rgb(245, 217, 124);
+  border-right: 2px solid rgb(245, 217, 124);
 }
 
 .b {
-    border-top: 2px solid rgb(245, 217, 124);
-    border-left: 2px solid rgb(245, 217, 124);
-    border-right: 2px solid rgb(245, 217, 124);
+  border-top: 2px solid rgb(245, 217, 124);
+  border-left: 2px solid rgb(245, 217, 124);
+  border-right: 2px solid rgb(245, 217, 124);
 }
 
 .br {
-    border-top: 2px solid rgb(245, 217, 124);
-    border-left: 2px solid rgb(245, 217, 124);
+  border-top: 2px solid rgb(245, 217, 124);
+  border-left: 2px solid rgb(245, 217, 124);
 }
 
 section + button {
-    grid-column: 3 / 5;
-    color: white;
-    background: none;
-    font-size: 1.1rem;
-    width: 120px;
-    justify-self: center;
-    cursor: pointer;
+  grid-column: 3 / 5;
+  color: white;
+  background: none;
+  font-size: 1.1rem;
+  width: 120px;
+  justify-self: center;
+  cursor: pointer;
 }
 
 section + button:hover {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .players > p {
-    display: flex;
-    justify-content: space-around;
-    border-radius: 20px;
-    background-color: rgba(248, 212, 95, 0.7);
-    height: 30px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 20px;
+  background-color: rgba(248, 212, 95, 0.7);
+  padding: 0.5rem;
 }
 
-.player1, .player2 {
-    color: white;
-    text-align: center;
-    height: 30px;
+.player1,
+.player2 {
+  color: white;
+  text-align: center;
+  height: 30px;
 }
-
