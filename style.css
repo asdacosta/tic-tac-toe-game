@@ -232,6 +232,10 @@ section + button:hover {
 }
 
 @media (max-width: 500px) {
+  body {
+    height: 100%;
+  }
+
   body > section > section {
     padding: 0 0.5rem;
   }
